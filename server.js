@@ -9,6 +9,7 @@ const morgan = require('morgan')
 const Drum = require('./models/drum')
 const middleware = require('./utils/middleware')
 const drumRouter = require('./controllers/drumController')
+const userRouter = require('./controllers/userController')
 
 // *********** *********** *********** //
 // Create Express Application          //
@@ -33,6 +34,7 @@ app.get('/', (req, res) => {
 // register routes
 
 app.use('/drums', drumRouter)
+app.use('/users', userRouter)
 
 // *********** *********** *********** //
 // Server Listener                     //

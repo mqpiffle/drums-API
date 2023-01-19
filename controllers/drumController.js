@@ -15,54 +15,6 @@ const router = express.Router()
 // Routes                              //
 // *********** *********** *********** //
 
-// seed link
-router.get('/fruits/seed', (req, res) => {
-
-    const seedDrums = [
-        {
-            manufacturer: "Drum Workshop",
-            model: "Collector's Series",
-            finish: "Diamond Sparkle",
-            pieces: 8,
-            priceUSD: 5499,
-            custom: true
-        },{
-            manufacturer: "Pearl",
-            model: "Decade Maple",
-            finish: "Satin Black Burst",
-            pieces: 5,
-            priceUSD: 949,
-            custom: false
-        },{
-            manufacturer: "Ludwig",
-            model: "Vistalite Zep",
-            finish: "Amber",
-            pieces: 5,
-            priceUSD: 3999,
-            custom: false
-        },{
-            manufacturer: "Ddrum",
-            model: "D2",
-            finish: "Red Sparkle",
-            pieces: 5,
-            priceUSD: 499,
-            custom: false
-        }
-    ]
-
-    // delete all drums
-
-    Drum.deleteMany({})
-        .then(drums => {
-            // then create initial drum list from the seed
-            Drum.create(seedDrums)
-            .then((drums => {
-                // response to confirm creation
-                res.json(data)
-            }))
-            
-        })
-})
 
 // INDEX Route (REST)
 // coresponds to READ (CRUD) -> finds and displays all fruits
@@ -70,7 +22,7 @@ router.get('/fruits/seed', (req, res) => {
 router.get('/', (req, res) => {
     // find all of the drums
     Drum.find({})
-        // .populate('owner', '-password')
+        .populate('owner', '-password')
         .then(drums => {
             res.status(200).json({ drums: drums })
         })
