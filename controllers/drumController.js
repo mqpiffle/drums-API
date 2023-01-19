@@ -98,6 +98,7 @@ router.post('/', (req, res) => {
 
 // INDEX MINE
 // corresponds to READ (CRUD) -> finds and displays all auth'd user's drums
+
 router.get('/mine', (req, res) => {
     // find all documents with an owner field = the auth'd user's id
     Drum.find({ owner: req.session.userId })
