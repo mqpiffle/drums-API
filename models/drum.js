@@ -1,5 +1,5 @@
 // *********** *********** *********** //
-// Models                              //
+// Drum Schema and Models              //
 // *********** *********** *********** //
 
 const { default: mongoose } = require("mongoose");
@@ -9,7 +9,8 @@ const { Schema, model } = mongoose
 
 // drums schema (properties for a set of drums)
 const drumsSchema = new Schema({
-    name: String,
+    manufacturer: String,
+    model: String,
     finish: String,
     pieces: Number,
     priceUSD: Number,
@@ -19,4 +20,4 @@ const drumsSchema = new Schema({
 // create model
 const Drum = model('Drum', drumsSchema)
 
-module.exports = Fruit;
+module.exports = Drum;
