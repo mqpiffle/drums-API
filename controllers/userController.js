@@ -20,6 +20,14 @@ const router = express.Router()
 // the user needs to be able to:
 // create an account
 
+// GET -> users/signup
+// this route renders the signup page
+
+router.get('/signup', (req, res) => {
+    res.render('users/signup')
+})
+
+
 // POST -> users/signup
 // this route creates new users in our db
 
@@ -47,6 +55,13 @@ router.post('/signup', async (req, res) => {
 })
 
 // log in to their account
+
+// GET -> users/login
+// this route renders the login page
+
+router.get('/login', (req, res) => {
+    res.render('users/login')
+})
 
 // POST -> users/login
 // it's a POST (and not a GET) because WE ARE CREATING A NEW SESSION model
