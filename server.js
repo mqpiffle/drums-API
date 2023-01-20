@@ -8,8 +8,9 @@ const path = require('path')
 const morgan = require('morgan') 
 const Drum = require('./models/drum')
 const middleware = require('./utils/middleware')
-const drumRouter = require('./controllers/drumController')
-const userRouter = require('./controllers/userController')
+const DrumRouter = require('./controllers/drumController')
+const UserRouter = require('./controllers/userController')
+const CommentRouter = require('./controllers/commentController')
 
 // *********** *********** *********** //
 // Create Express Application          //
@@ -33,8 +34,9 @@ app.get('/', (req, res) => {
 
 // register routes
 
-app.use('/drums', drumRouter)
-app.use('/users', userRouter)
+app.use('/drums', DrumRouter)
+app.use('/users', UserRouter)
+app.use('/comments', CommentRouter)
 
 // *********** *********** *********** //
 // Server Listener                     //

@@ -4,10 +4,16 @@
 
 const { default: mongoose } = require("mongoose");
 
+// import commentSchema to use as subdocument
+
+const commentSchema = require('./comment')
+
 // pull schema and model from mongoose
+
 const { Schema, model } = mongoose
 
 // drums schema (properties for a set of drums)
+
 const drumsSchema = new Schema({
     manufacturer: {
         type: String
@@ -33,7 +39,8 @@ const drumsSchema = new Schema({
         type: Schema.Types.ObjectId,
         // look at this model
         ref: 'User'
-    }
+    },
+    comments: [commentSchema]
 }, {
     timestamps: true
 })
