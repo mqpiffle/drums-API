@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
 // corresponds to CREATE (CRUD) ->  creates a new document in the database
 
 router.post('/', (req, res) => {
-    // req.body.owner = req.session.userId
+    req.body.owner = req.session.userId
     const newDrum = req.body
     Drum.create(newDrum)
         .then(drum => {

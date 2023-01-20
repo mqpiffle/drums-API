@@ -11,14 +11,14 @@ const mongoose = require('../utils/connection')
 // router.get('/drums/seed', (req, res) => {
 
 //     const seedDrums = [
-//         {
-//             manufacturer: "Drum Workshop",
-//             model: "Collector's Series",
-//             finish: "Diamond Sparkle",
-//             pieces: 8,
-//             priceUSD: 5499,
-//             custom: true
-//         },{
+        // {
+        //     manufacturer: "Drum Workshop",
+        //     model: "Collector's Series",
+        //     finish: "Diamond Sparkle",
+        //     pieces: 8,
+        //     priceUSD: 5499,
+        //     custom: true
+        // },{
 //             manufacturer: "Pearl",
 //             model: "Decade Maple",
 //             finish: "Satin Black Burst",

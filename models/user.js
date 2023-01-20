@@ -28,4 +28,4 @@ const User = model('User', userSchema)
 // Export Model                        //
 // *********** *********** *********** //
 
-module.export = User
+module.exports = User

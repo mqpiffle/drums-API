@@ -101,7 +101,7 @@ router.delete('/logout', (req, res) => {
     req.session.destroy(() => {
         console.log('this is req.session upon logout \n', req.session)
         // eventually redirect users here when we implement VIEW layer
-        req.sendStatus(204)
+        res.sendStatus(204)
     })
 })
 
