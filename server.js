@@ -12,11 +12,12 @@ const DrumRouter = require('./controllers/drumController')
 const UserRouter = require('./controllers/userController')
 const CommentRouter = require('./controllers/commentController')
 
+
 // *********** *********** *********** //
 // Create Express Application          //
 // *********** *********** *********** //
 
-const app = express()
+const app = require('liquid-express-views')(express())
 
 // *********** *********** *********** //
 // Middleware                          //
@@ -28,8 +29,10 @@ middleware(app)
 // Routes                              //
 // *********** *********** *********** //
 
+// 'Home' route
+
 app.get('/', (req, res) => {
-    res.send('the server is running')
+    res.render('index.liquid')
 })
 
 // register routes
