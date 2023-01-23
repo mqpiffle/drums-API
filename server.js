@@ -2,28 +2,26 @@
 // Import Dependencies                 //
 // *********** *********** *********** //
 
-require('dotenv').config()
-const express = require('express') 
-const path = require('path')
-const morgan = require('morgan') 
-const Drum = require('./models/drum')
-const middleware = require('./utils/middleware')
-const DrumRouter = require('./controllers/drumController')
-const UserRouter = require('./controllers/userController')
-const CommentRouter = require('./controllers/commentController')
-
+require("dotenv").config();
+const express = require("express");
+const path = require("path");
+const morgan = require("morgan");
+const middleware = require("./utils/middleware");
+const DrumRouter = require("./controllers/drumController");
+const UserRouter = require("./controllers/userController");
+const CommentRouter = require("./controllers/commentController");
 
 // *********** *********** *********** //
 // Create Express Application          //
 // *********** *********** *********** //
 
-const app = require('liquid-express-views')(express())
+const app = require("liquid-express-views")(express());
 
 // *********** *********** *********** //
 // Middleware                          //
 // *********** *********** *********** //
 
-middleware(app)
+middleware(app);
 
 // *********** *********** *********** //
 // Routes                              //
@@ -31,19 +29,19 @@ middleware(app)
 
 // 'Home' route
 
-app.get('/', (req, res) => {
-    res.render('index.liquid')
-})
+app.get("/", (req, res) => {
+  res.render("home.liquid", { ...req.session });
+});
 
 // register routes
 
-app.use('/drums', DrumRouter)
-app.use('/users', UserRouter)
-app.use('/comments', CommentRouter)
+app.use("/drums", DrumRouter);
+app.use("/users", UserRouter);
+app.use("/comments", CommentRouter);
 
 // *********** *********** *********** //
 // Server Listener                     //
 // *********** *********** *********** //
 
-const PORT = process.env.PORT
-app.listen(PORT, () => console.log(`Now listening on port ${PORT}`))
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));

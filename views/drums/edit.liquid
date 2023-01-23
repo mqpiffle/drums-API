@@ -1,0 +1,73 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  <div class="container-sm">
+    <form action="/drums/{{drum.id}}?_method=PUT" method="POST">
+      <fieldset>
+        <legend>Edit {{ drum.manufacturer }}</legend>
+        <label class="form-label">Manufacturer:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="manufacturer"
+          placeholder="Brand name"
+          value="{{drums.manufacturer}}"
+          required>
+        <label class="form-label">Model:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="model"
+          placeholder="model"
+          value="{{drums.model}}"
+          required>
+        <label class="form-label">Finish:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="finish"
+          placeholder="finsh color and/or style"
+          value="{{drums.finish}}"
+          required>
+        <label class="form-label">Pieces:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="pieces"
+          placeholder="How many drums?"
+          value="{{drums.pieces}}"
+          required>
+        <label class="form-label">Retail Price:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="priceUSD"
+          placeholder="USD"
+          value="{{drums.priceUSD}}"
+          required>
+        <div class="container-sm">
+          <input
+            type="radio"
+            name="custom"
+            value="custom"
+            {% if drum.custom %}
+            checked
+            {% endif %}>
+          <label for="custom" class="form-label">Custom</label>
+          <input
+            type="radio"
+            name="shellpack"
+            value="shellpack"
+            {% if drum.custom %}
+            checked
+            {% endif %}>
+          <label for="shellpack" class="form-label">Shell Pack</label>
+        </div>
+      </fieldset>
+      <input
+        type="text"
+        class="btn btn-success"
+        value="Edit {{drum.manufacturer}}">
+      <a href="/drums/{{drum.id}}" class="btn btn-warning">Back</a>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  <div class="container-sm">
+    <form action="/drums" method="POST">
+      <fieldset>
+        <legend>Create New Drumkit</legend>
+        <label class="form-label">Manufacturer:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="manufacturer"
+          placeholder="Brand name"
+          required>
+        <label class="form-label">Model:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="model"
+          placeholder="model"
+          required>
+        <label class="form-label">Finish:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="finish"
+          placeholder="finsh color and/or style"
+          required>
+        <label class="form-label">Pieces:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="pieces"
+          placeholder="How many drums?"
+          required>
+        <label class="form-label">Retail Price:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="priceUSD"
+          placeholder="USD"
+          required>
+        <div class="container-sm">
+          <input
+            type="radio"
+            name="custom"
+            value="custom">
+          <label for="custom" class="form-label">Custom</label>
+          <input
+            type="radio"
+            name="shellpack"
+            value="shellpack"
+            checked>
+          <label for="shellpack" class="form-label">Shell Pack</label>
+        </div>
+      </fieldset>
+      <input
+        type="submit"
+        class="btn btn-success"
+        value="Create New Drumkit">
+      <a href="/drums/{{drum.id}}" class="btn btn-warning">Back</a>
+    </form>
+  </div>
+{% endblock %}

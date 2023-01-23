@@ -1,0 +1,31 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  {% if fruits.length > 0 %}
+    <div class="container-md">
+      <h2>All Drums</h2>
+      <div class="row">
+        {% for drum in drums %}
+          <div class="card me-3 mb-3" style="width: 18rem;">
+            <h4 class="card-header">{{ drum.manufacturer }} {{ drum.pieces }} pc.</h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ drum.model }}</h5>
+              <h5>{{ drum.finish }}</h5>
+              <h3>${{ drum.priceUSD }}<small>USD</small>
+              </h3>
+              {% if drum.custom %}
+                <p>CUSTOM</p>
+              {% else %}
+                <p>SHELL PACK</p>
+              {% endif %}
+              <a href="/drums/{{drum.id}}" class="btn btn-info">View {{ drum.model }}</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <div class="container-md">
+      <h2>No drums available, please choose some!</h2>
+    </div>
+  {% endif %}
+{% endblock %}

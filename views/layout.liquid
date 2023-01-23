@@ -12,6 +12,27 @@
         <link rel="stylesheet" href="/styles.css" />
     </head>
     <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a href="/" class="navbar-brand">DRUMPI</a>
+                {% if loggedIn %}
+                    <a href="/drums/mine" class="nav-link text-warning me-3">Hello {{username}}</a>
+                {% endif %}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                        <a href="/drums" class="nav-link text-light me-3">All Drums</a>
+                    {% if loggedIn  %}
+                        <a href="/drums/new" class="nav-link text-light me-3">New Drum</a>
+                        <a href="/users/logout" class="nav-link text-light me-3">Log Out</a>
+                    {% else %}
+                        <a href="/users/signup" class="nav-link text-light me-3">Sign Up</a>
+                        <a href="/users/login" class="nav-link text-light me-3">Log In</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
         <main class="container-md">
             {% block content %}
                 default content
